@@ -1,0 +1,29 @@
+ExamTopics Free Bypass Contributor Access
+https://www.youtube.com/watch?v=MVVVsYiux20  
+
+Old Exam
+https://www.examtopics.com/exams/amazon/aws-certified-sysops-administrator-associate/view/11/
+https://www.secexams.com/exams/amazon/aws-certified-sysops-administrator-associate/view/11/
+
+https://www.examtopics.com/discussions/amazon/
+
+Will start from https://www.examtopics.com/exams/amazon/aws-certified-sysops-administrator-associate/view/10/
+https://www.secexams.com/exams/Amazon/aws-certified-sysops-administrator-associate/view/21
+
+
+New Exam (SOA-C03)
+https://www.examtopics.com/exams/amazon/aws-certified-cloudops-engineer-associate-soa-c03/view/4/
+https://www.secexams.com/exams/amazon/aws-certified-cloudops-engineer-associate-soa-c03/view/4/
+
+https://www.certlibrary.com/exam/AWS%20Certified%20CloudOps%20Engineer%20-%20Associate%20SOA-C03
+https://www.itexams.com/exam/AWS-Certified-CloudOps-Engineer-Associate-SOA-C03
+https://www.certshero.com/amazon/soa-c03/practice-test
+https://www.certsafari.com/aws/quiz/cloudops-engineer-associate
+https://github.com/Ditectrev/AWS-Certified-CloudOps-Engineer-Associate-SOA-C03-Practice-Tests-Exams-Questions-Answers
+
+
+AWS Certified CloudOps Engineer - Associate SOA-C03. I have to give exam in next month Sept 03, 2026 and I want to prepare for exam and looking for Mock Test with level hard for exam. Can you prepare the mock test for me same level as in real exam and answer should not be easy to guess. You should use the latest information as on today for Exam related and try to cover all modules whatever relevant for SOA-C03. Ask me question for qxam level and give me option to reply the correct answer and explain why it is wrong then move to next question until finished. Also, give me exam tips for remember things for question. Ask me 65 question and again level should be harder. I want to do kind of mock test with you. 
+
+
+I am ready for the next mock and this time level should be the hardest as same level as we get in a real exam and questions should not be repeated from previous mock. Questions should be cover all modules. Ask the questions based on latest officially documents [AWS Certified CloudOps Engineer - Associate SOA-C03].
+

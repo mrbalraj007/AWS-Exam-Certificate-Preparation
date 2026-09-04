@@ -1,0 +1,101 @@
+Anish Samy: +91 9790675546
+17-Aug-2026
+https://aws.amazon.com/blogs/aws/introducing-resource-control-policies-rcps-a-new-authorization-policy/
+https://awspolicygen.s3.amazonaws.com/policygen.html
+
+
+https://us-east-1.student.classrooms.aws.training/class/5gkko9kw7mL1nvwKsdEo3W
+https://www.mykoenig.com
+
+19-Aug-2026
+https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-ssm-agent-install-linux.html
+https://docs.aws.amazon.com/systems-manager/latest/userguide/hybrid-multicloud-service-role.html
+https://docs.aws.amazon.com/elasticloadbalancing/latest/application/load-balancer-troubleshooting.html#http-400-issues
+
+https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-windows-and-linux-differences.html
+
+https://docs.aws.amazon.com/systems-manager/latest/userguide/patch-manager-policies.html
+
+ExamTopics Free Bypass Contributor Access
+https://www.youtube.com/watch?v=MVVVsYiux20  
+
+Old Exam
+https://www.examtopics.com/exams/amazon/aws-certified-sysops-administrator-associate/view/11/
+https://www.secexams.com/exams/amazon/aws-certified-sysops-administrator-associate/view/11/
+
+https://www.examtopics.com/discussions/amazon/
+
+Will start from https://www.examtopics.com/exams/amazon/aws-certified-sysops-administrator-associate/view/10/
+https://www.secexams.com/exams/Amazon/aws-certified-sysops-administrator-associate/view/21
+
+
+New Exam (SOA-C03)
+https://www.examtopics.com/exams/amazon/aws-certified-cloudops-engineer-associate-soa-c03/view/4/
+https://www.secexams.com/exams/amazon/aws-certified-cloudops-engineer-associate-soa-c03/view/4/
+
+https://www.certlibrary.com/exam/AWS%20Certified%20CloudOps%20Engineer%20-%20Associate%20SOA-C03
+https://www.itexams.com/exam/AWS-Certified-CloudOps-Engineer-Associate-SOA-C03
+https://www.certshero.com/amazon/soa-c03/practice-test
+https://www.certsafari.com/aws/quiz/cloudops-engineer-associate
+https://github.com/Ditectrev/AWS-Certified-CloudOps-Engineer-Associate-SOA-C03-Practice-Tests-Exams-Questions-Answers
+
+WAF 1500 Rules
+
+aws backup put-backup-vault-notifications \
+--endpoint-url https://backup.us-west-2.amazonaws.com \
+--sns-topic-arn arn:aws:sns:us-west-2:078873465768:BackupNotificationTopic \
+--backup-vault-name myDailyBackupVault \
+--backup-vault-events RESTORE_JOB_COMPLETED BACKUP_JOB_COMPLETED
+
+aws backup put-backup-vault-notifications \
+--endpoint-url https://backup.LabRegion.amazonaws.com \
+--sns-topic-arn SNSTopicARN \
+--backup-vault-name myDailyBackupVault \
+--backup-vault-events RESTORE_JOB_COMPLETED BACKUP_JOB_COMPLETED
+
+
+
+AppServerSystemsCheckAlarm
+
+aws cloudwatch set-alarm-state \
+--alarm-name "AppServerSystemsCheckAlarm" \
+--state-value ALARM \
+--state-reason "testing purposes" \
+--region us-west-2
+
+
+
+
+
+
+What would be the recommended approach if we have more than 100 servers running different operating systems, such as Windows Server 2016, 2019, 2022, and 2025, as well as Ubuntu, RHEL 7.x, 8.x, and 9.x?
+In this type of environment, how would you recommend deploying and configuring the AWS Systems Manager (SSM) Agent across all servers?
+I’m particularly interested in understanding the best approach for managing the deployment at scale rather than installing and configuring the SSM Agent manually on each server.
+Could you please share the recommended method or best practices for setting this up in SSM?
+
+Golden Image is the solution
+
+
+insight, Lake and Athena
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+***************************
+*******************************************************************************
+
+AWS Certified CloudOps Engineer - Associate SOA-C03. I have to give exam in next month Sept 03, 2026 and I want to prepare for exam and looking for Mock Test with level hard for exam. Can you prepare the mock test for me same level as in real exam and answer should not be easy to guess. You should use the latest information as on today for Exam related and try to cover all modules whatever relevant for SOA-C03. Ask me question for qxam level and give me option to reply the correct answer and explain why it is wrong then move to next question until finished. Also, give me exam tips for remember things for question. Ask me 65 question and again level should be harder. I want to do kind of mock test with you. 
+
+
+I am ready for the next mock and this time level should be the hardest as same level as we get in a real exam and questions should not be repeated from previous mock. Questions should be cover all modules. Ask the questions based on latest officially documents [AWS Certified CloudOps Engineer - Associate SOA-C03].
+

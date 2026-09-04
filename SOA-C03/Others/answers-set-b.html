@@ -1,0 +1,2288 @@
+<!doctype html><html><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>SOA-C03 Set B Answer Review</title><style>
+:root{--bg:#f6f8fb;--card:#fff;--text:#172033;--muted:#657089;--accent:#ff9900;--ok:#176b3a;--bad:#b42318;--line:#d9dee8;--dark:#101828}
+*{box-sizing:border-box}body{margin:0;font-family:Inter,Segoe UI,Arial,sans-serif;background:var(--bg);color:var(--text)}
+header{position:sticky;top:0;z-index:10;background:var(--dark);color:#fff;padding:14px 22px;box-shadow:0 2px 10px #0002}
+.header-row{max-width:1180px;margin:auto;display:flex;gap:18px;align-items:center;justify-content:space-between;flex-wrap:wrap}
+.brand{font-weight:800}.brand span{color:var(--accent)} .stats{display:flex;gap:12px;align-items:center;flex-wrap:wrap}
+.pill{background:#fff1;border:1px solid #ffffff2e;border-radius:999px;padding:7px 11px;font-size:14px}
+.timer{font-variant-numeric:tabular-nums;font-weight:800;color:#ffd699}.danger{color:#ff8a8a!important}
+main{max-width:1180px;margin:22px auto;padding:0 18px;display:grid;grid-template-columns:250px 1fr;gap:20px}
+aside,.card{background:var(--card);border:1px solid var(--line);border-radius:14px;box-shadow:0 2px 8px #1018280b}
+aside{padding:15px;align-self:start;position:sticky;top:92px;max-height:calc(100vh - 110px);overflow:auto}
+.grid{display:grid;grid-template-columns:repeat(5,1fr);gap:6px}.qnav{border:1px solid var(--line);background:#fff;border-radius:7px;padding:7px 0;cursor:pointer;font-size:12px}
+.qnav.current{outline:2px solid var(--accent)}.qnav.answered{background:#eef6ff}.qnav.correct{background:#e9f8ef;border-color:#9bd4ad}.qnav.wrong{background:#fff0ef;border-color:#f1aaa5}.qnav.flagged{box-shadow:inset 0 -3px #ff9900}
+.card{padding:26px}.domain{font-size:13px;color:#8a4b00;background:#fff5e6;display:inline-block;padding:6px 9px;border-radius:8px;font-weight:700}
+h1{font-size:24px;margin:14px 0 6px}.meta{color:var(--muted);font-size:14px;margin-bottom:22px}
+.option{display:flex;gap:11px;padding:13px;border:1px solid var(--line);border-radius:10px;margin:10px 0;cursor:pointer;line-height:1.4;background:#fff}
+.option:hover{border-color:#aab4c3}.option input{margin-top:3px}.letter{font-weight:800;min-width:22px}
+.actions{display:flex;gap:10px;flex-wrap:wrap;margin-top:20px}.btn{border:0;border-radius:9px;padding:11px 15px;font-weight:700;cursor:pointer}
+.primary{background:var(--dark);color:#fff}.secondary{background:#eef1f5;color:#172033}.warn{background:#fff3da;color:#7c4700}
+.feedback{margin-top:20px;padding:16px;border-radius:10px;display:none}.feedback.ok{display:block;background:#eaf8ef;border:1px solid #a9d6b7}.feedback.bad{display:block;background:#fff0ef;border:1px solid #e7aaa6}
+.feedback h3{margin:0 0 8px}.tip{margin-top:10px;padding-top:10px;border-top:1px solid #0001;font-weight:650}
+.progress{height:8px;background:#27334a;border-radius:10px;overflow:hidden;min-width:160px}.progress>div{height:100%;background:var(--accent)}
+.note{font-size:12px;color:var(--muted);line-height:1.4}.summary{display:none}.summary.show{display:block}
+.summary table,.review table{width:100%;border-collapse:collapse}.summary th,.summary td,.review th,.review td{border-bottom:1px solid var(--line);padding:10px;text-align:left;vertical-align:top}
+.review-item{background:white;border:1px solid var(--line);border-radius:12px;padding:18px;margin:14px 0}.right{color:var(--ok);font-weight:800}.wrongtxt{color:var(--bad);font-weight:800}
+@media(max-width:800px){main{grid-template-columns:1fr}aside{position:static;max-height:none}.grid{grid-template-columns:repeat(10,1fr)}}
+</style></head><body>
+<header><div class="header-row"><div class="brand">AWS <span>SOA-C03</span> Set B Answer Review</div><div class="stats"><a class="btn warn" href="mock-set-b.html">Back to mock</a></div></div></header>
+<main style="display:block;max-width:980px"><div class="card"><h1>130-question answer review</h1><p id="scoreline"></p>
+<p class="note">These are original practice questions aligned to the current SOA-C03 content outline. They are not leaked AWS exam questions or exam dumps.</p></div><div id="review" class="review"></div></main>
+<script>const QUESTION_BANK = [
+  {
+    "id": 1,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a quarterly operations review, an EC2 fleet behind an ALB shows rising TargetResponseTime while average CPU remains 28%. RDS DatabaseConnections is near the engine limit and application traces show waits acquiring DB connections. Which TWO actions should be investigated first? The solution must minimize operational overhead.",
+    "choices": [
+      "Use RDS Performance Insights/Database Insights to identify waits and expensive SQL",
+      "Investigate connection pooling or RDS Proxy",
+      "Replace the ALB with an NLB",
+      "Raise the CPU alarm threshold",
+      "Scale out the Auto Scaling group immediately"
+    ],
+    "answers": [
+      "A",
+      "B"
+    ],
+    "explanation": "Best choice rationale: The evidence points to a database/connection bottleneck, not compute saturation. Database performance analysis plus connection management address the constrained tier.",
+    "tip": "SOA-C03 exam cue: Do not scale the tier that is not saturated; find the bottleneck first.",
+    "multi": true
+  },
+  {
+    "id": 2,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "After a production incident, an enterprise needs to know whether intermittent HTTP 503 responses are generated by the ALB or by its targets. Which TWO CloudWatch metrics are most directly useful?",
+    "choices": [
+      "HealthyHostCount only",
+      "CPUUtilization",
+      "NetworkPacketsOut",
+      "HTTPCode_ELB_5XX_Count",
+      "HTTPCode_Target_5XX_Count"
+    ],
+    "answers": [
+      "D",
+      "E"
+    ],
+    "explanation": "Best choice rationale: ELB 5XX identifies errors generated by the load balancer; Target 5XX identifies responses returned by targets.",
+    "tip": "SOA-C03 exam cue: Learn the difference between load-balancer-generated and target-generated 5xx metrics.",
+    "multi": true
+  },
+  {
+    "id": 3,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "While preparing a change window, the operations group needs to simulate a login workflow every 5 minutes from AWS-managed locations and alarm on failed steps or excessive latency. Which service is the BEST fit? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "VPC Reachability Analyzer",
+      "CloudWatch Application Signals",
+      "CloudWatch Synthetics canaries",
+      "CloudWatch Logs Insights"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Synthetics canaries actively execute scripted user/API journeys on a schedule and publish availability/latency results.",
+    "tip": "SOA-C03 exam cue: 'Simulate a user/API call' is a Synthetics clue.",
+    "multi": false
+  },
+  {
+    "id": 4,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A newly acquired business unit reports that a Linux EC2 workload needs memory, disk-used percentage, process statistics, and /var/log/app.log sent to CloudWatch. What is the LEAST operationally complex approach? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Install and centrally configure the CloudWatch agent",
+      "Enable CloudTrail data events",
+      "Use AWS Config advanced queries",
+      "Enable EC2 detailed monitoring"
+    ],
+    "answers": [
+      "A"
+    ],
+    "explanation": "Best choice rationale: The CloudWatch agent collects OS-level metrics and log files; EC2 detailed monitoring does not add memory/disk-used or application logs.",
+    "tip": "SOA-C03 exam cue: Standard EC2 metrics are hypervisor-level; OS metrics usually require the agent.",
+    "multi": false
+  },
+  {
+    "id": 5,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a resilience test, a CloudWatch alarm enters ALARM when queue depth is high. The team wants a no-server remediation that runs a predefined SSM Automation runbook. Which architecture is MOST appropriate?",
+    "choices": [
+      "Config → Lambda → Route 53",
+      "Logs Insights → NAT Gateway → SSM Session Manager",
+      "CloudWatch Alarm state change → EventBridge → SSM Automation",
+      "CloudTrail → SNS → SSH"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Alarm state changes are EventBridge events; Systems Manager Automation is the managed multi-step remediation target.",
+    "tip": "SOA-C03 exam cue: Event-driven remediation often looks like Alarm/EventBridge → Automation.",
+    "multi": false
+  },
+  {
+    "id": 6,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A CloudOps engineer discovers that the CloudOps engineer must determine which IAM principal changed an Auto Scaling group's desired capacity at 03:14 UTC. Which service should be queried first? The engineer must choose the BEST operational response.",
+    "choices": [
+      "VPC Flow Logs",
+      "CloudWatch Metrics",
+      "AWS CloudTrail",
+      "AWS Config only"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: CloudTrail records AWS API activity including caller identity, time, source, request parameters, and API action.",
+    "tip": "SOA-C03 exam cue: 'Who called which AWS API?' means CloudTrail.",
+    "multi": false
+  },
+  {
+    "id": 7,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "Following a security audit, an enterprise wants to know when a security group's ingress configuration changed and whether it violates an approved rule. Which TWO services/capabilities best address this? The change must minimize service disruption.",
+    "choices": [
+      "Route 53 query logs",
+      "EBS Fast Snapshot Restore",
+      "AWS Config configuration history/rules",
+      "CloudTrail for the API caller",
+      "CloudWatch Synthetics"
+    ],
+    "answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Best choice rationale: Config records configuration/compliance; CloudTrail identifies the actor/API operation that made the change.",
+    "tip": "SOA-C03 exam cue: Config answers 'what is the resource state/compliance'; CloudTrail answers 'who made the API call'.",
+    "multi": true
+  },
+  {
+    "id": 8,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a capacity-planning exercise, an EC2 instance is underutilized for months. The team wants AWS-managed rightsizing recommendations based on historical utilization. Which service is MOST specific?",
+    "choices": [
+      "AWS Cost Explorer only",
+      "AWS Config",
+      "Trusted Advisor",
+      "AWS Compute Optimizer"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Compute Optimizer analyzes utilization patterns and provides resource rightsizing recommendations.",
+    "tip": "SOA-C03 exam cue: Historical utilization + instance-type recommendation = Compute Optimizer.",
+    "multi": false
+  },
+  {
+    "id": 9,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A platform team has a requirement that the operations team wants to query millions of CloudWatch log events for requestId, status=500, and p95 duration during a time window without exporting data. Which capability should be used? The solution must minimize operational overhead.",
+    "choices": [
+      "AWS Config advanced queries",
+      "CloudWatch Logs Insights",
+      "CloudWatch Synthetics",
+      "CloudTrail Lake only"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Logs Insights is purpose-built for interactive query and aggregation of CloudWatch Logs data.",
+    "tip": "SOA-C03 exam cue: Query/filter/aggregate logs = Logs Insights.",
+    "multi": false
+  },
+  {
+    "id": 10,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During troubleshooting of a customer-impacting issue, an ALB target intermittently fails health checks. The team wants packet metadata showing ACCEPT/REJECT, source/destination, ports, and interfaces. Which source is MOST useful? The design must follow least privilege.",
+    "choices": [
+      "CloudTrail management events",
+      "S3 inventory",
+      "CloudWatch Synthetics",
+      "VPC Flow Logs"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: VPC Flow Logs capture IP traffic metadata and acceptance/rejection information.",
+    "tip": "SOA-C03 exam cue: Packets/ports/ACCEPT/REJECT = VPC Flow Logs.",
+    "multi": false
+  },
+  {
+    "id": 11,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a quarterly operations review, an enterprise wants to determine whether VPC configuration permits a path from an EC2 ENI to an RDS endpoint and identify the blocking route table, NACL, or SG without sending test packets. Which tool?",
+    "choices": [
+      "CloudTrail",
+      "Inspector",
+      "Reachability Analyzer",
+      "CloudWatch Logs Insights"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Reachability Analyzer performs configuration analysis of the path and identifies blocking components.",
+    "tip": "SOA-C03 exam cue: 'Can A reach B, and what blocks it?' = Reachability Analyzer.",
+    "multi": false
+  },
+  {
+    "id": 12,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "After a production incident, a production service uses a gp3 EBS volume. QueueLength is persistently high, throughput is saturated, but IOPS is below its provisioned value. What is the MOST likely first tuning action? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Change Route 53 routing",
+      "Increase provisioned throughput on gp3",
+      "Increase EC2 CPU",
+      "Enable S3 Transfer Acceleration"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: gp3 lets throughput and IOPS be provisioned independently; saturation of throughput with spare IOPS points to throughput.",
+    "tip": "SOA-C03 exam cue: Use the metric that is saturated; gp3 decouples size, IOPS, and throughput.",
+    "multi": false
+  },
+  {
+    "id": 13,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "While preparing a change window, a Lambda-backed operations workflow needs a metric representing business transactions per minute that AWS does not emit natively. What should the engineer do? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Create a CloudTrail trail",
+      "Enable detailed EC2 monitoring",
+      "Create an AWS Config rule",
+      "Publish a custom CloudWatch metric"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Custom CloudWatch metrics are designed for application/business measurements not emitted by AWS services.",
+    "tip": "SOA-C03 exam cue: If the metric does not exist, publish a custom metric.",
+    "multi": false
+  },
+  {
+    "id": 14,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A newly acquired business unit reports that the operations team wants one alarm to trigger only when CPU is high AND request latency is high, reducing false positives. Which CloudWatch feature is the BEST fit?",
+    "choices": [
+      "Logs Insights",
+      "Synthetics",
+      "Composite alarms",
+      "Metric streams"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Composite alarms combine states of other alarms using logical expressions.",
+    "tip": "SOA-C03 exam cue: Multiple alarm conditions with AND/OR = composite alarm.",
+    "multi": false
+  },
+  {
+    "id": 15,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a resilience test, an enterprise needs near-real-time streaming of CloudWatch metrics to an external observability platform with minimal polling. Which capability? The change must minimize service disruption.",
+    "choices": [
+      "S3 Inventory",
+      "CloudWatch Metric Streams",
+      "CloudTrail Lake",
+      "AWS Config aggregator"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Metric Streams continuously deliver CloudWatch metrics to supported destinations such as Firehose.",
+    "tip": "SOA-C03 exam cue: Continuous metric export = Metric Streams.",
+    "multi": false
+  },
+  {
+    "id": 16,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A CloudOps engineer discovers that a managed server fleet uses CloudWatch Agent. The team wants a centralized agent configuration that can be updated without editing every server. Which approach is BEST? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Bake credentials into AMIs",
+      "Use S3 website hosting",
+      "Change EC2 detailed-monitoring frequency",
+      "Store the CloudWatch agent configuration in Systems Manager Parameter Store and distribute/reload it"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: CloudWatch Agent configuration can be centrally stored and retrieved, commonly using Systems Manager Parameter Store.",
+    "tip": "SOA-C03 exam cue: Centralized agent config + fleet = Parameter Store/SSM.",
+    "multi": false
+  },
+  {
+    "id": 17,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "Following a security audit, an operations team needs to detect abnormal deviations in a CloudWatch metric without manually choosing a static threshold. Which feature is MOST appropriate?",
+    "choices": [
+      "AWS Config conformance packs",
+      "Route 53 health checks",
+      "CloudWatch anomaly detection",
+      "CloudTrail Insights"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: CloudWatch anomaly detection builds expected bands from historical metric behavior and alarms on anomalies.",
+    "tip": "SOA-C03 exam cue: Dynamic metric baseline = CloudWatch anomaly detection.",
+    "multi": false
+  },
+  {
+    "id": 18,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a capacity-planning exercise, the operations team needs to identify top IP addresses contributing to rejected requests using structured log data. Which CloudWatch feature is purpose-built for top contributors? The design must follow least privilege.",
+    "choices": [
+      "Metric Math only",
+      "Contributor Insights",
+      "Synthetics",
+      "Application Signals"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Contributor Insights analyzes time-series/log patterns to identify top contributors.",
+    "tip": "SOA-C03 exam cue: 'Top talkers/contributors' = Contributor Insights.",
+    "multi": false
+  },
+  {
+    "id": 19,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A platform team has a requirement that a microservices team wants service-level latency, faults, dependency visibility, and SLO tracking for instrumented applications. Which CloudWatch capability is the BEST fit? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Synthetics only",
+      "VPC Flow Logs",
+      "CloudTrail Lake",
+      "Application Signals"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Application Signals provides application/service operational health, dependencies, latency/fault visibility, and SLO-oriented monitoring.",
+    "tip": "SOA-C03 exam cue: Service health/dependencies/SLOs = Application Signals.",
+    "multi": false
+  },
+  {
+    "id": 20,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During troubleshooting of a customer-impacting issue, an enterprise wants an alarm when 3 of the last 5 one-minute datapoints breach a threshold. Which CloudWatch alarm settings express this?",
+    "choices": [
+      "EvaluationPeriods=3 and DatapointsToAlarm=5",
+      "DetailedMonitoring=true",
+      "EvaluationPeriods=5 and DatapointsToAlarm=3",
+      "Period=5 minutes only"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: M-out-of-N alarming uses EvaluationPeriods=N and DatapointsToAlarm=M.",
+    "tip": "SOA-C03 exam cue: Remember M of N = DatapointsToAlarm of EvaluationPeriods.",
+    "multi": false
+  },
+  {
+    "id": 21,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a quarterly operations review, a database alarm repeatedly flips ALARM/OK because the metric hovers near a threshold. Which design MOST directly reduces noisy notifications while retaining monitoring? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Enable CloudTrail data events",
+      "Use a longer evaluation and appropriate datapoints-to-alarm",
+      "Disable CloudWatch",
+      "Move the database to a public subnet"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Requiring sustained or multiple breaching datapoints reduces state flapping from transient spikes.",
+    "tip": "SOA-C03 exam cue: Tune period/evaluation/datapoints before inventing automation.",
+    "multi": false
+  },
+  {
+    "id": 22,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "After a production incident, an enterprise needs centralized CloudWatch dashboards and alarms across many accounts. Which organizational approach minimizes account-by-account console switching? The engineer must choose the BEST operational response.",
+    "choices": [
+      "Create IAM users with shared passwords",
+      "Export screenshots daily",
+      "Use Route 53 Resolver rules",
+      "Use CloudWatch cross-account observability/central monitoring capabilities"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: CloudWatch supports centralized cross-account observability patterns for metrics, logs, and traces.",
+    "tip": "SOA-C03 exam cue: Multi-account operations: prefer native centralized observability.",
+    "multi": false
+  },
+  {
+    "id": 23,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "While preparing a change window, an S3 application needs object-level audit records for GetObject and DeleteObject. Which CloudTrail setting is required?",
+    "choices": [
+      "Enable VPC Flow Logs only",
+      "Enable S3 Inventory",
+      "Enable S3 data events for the bucket",
+      "Management events are always sufficient"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: S3 object-level operations are CloudTrail data events, not ordinary management events.",
+    "tip": "SOA-C03 exam cue: Object/API data-plane access = CloudTrail data events.",
+    "multi": false
+  },
+  {
+    "id": 24,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A newly acquired business unit reports that an enterprise wants to retain application logs for 90 days and automatically remove older CloudWatch log events. What is the simplest control? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Delete the log group monthly",
+      "Set the CloudWatch Logs log-group retention policy to 90 days",
+      "Create an EC2 lifecycle hook",
+      "Use an SCP"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: CloudWatch Logs supports per-log-group retention policies that automatically expire old events.",
+    "tip": "SOA-C03 exam cue: Retention requirement: use native log-group retention.",
+    "multi": false
+  },
+  {
+    "id": 25,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a resilience test, a CPU alarm must notify different teams based on severity: warning at 70% and critical at 90%. Which approach is simplest? The solution must minimize operational overhead.",
+    "choices": [
+      "Use one security group",
+      "Use a NAT Gateway",
+      "Create an S3 lifecycle rule",
+      "Create separate CloudWatch alarms with appropriate SNS targets"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Separate metric alarms can represent distinct thresholds and actions.",
+    "tip": "SOA-C03 exam cue: Different thresholds/actions = separate alarms unless a more complex composite design is needed.",
+    "multi": false
+  },
+  {
+    "id": 26,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A CloudOps engineer discovers that the CloudOps engineer suspects an IAM access-key compromise because of unusual API call volume and error patterns. Which CloudTrail capability can help detect unusual API activity patterns?",
+    "choices": [
+      "EBS direct APIs",
+      "AWS Backup Audit Manager",
+      "CloudTrail Insights",
+      "CloudWatch Synthetics"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: CloudTrail Insights can identify unusual API call/error-rate activity relative to normal patterns.",
+    "tip": "SOA-C03 exam cue: Unusual control-plane API patterns = CloudTrail Insights.",
+    "multi": false
+  },
+  {
+    "id": 27,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "Following a security audit, the operations team wants to correlate a CloudWatch alarm with a recent deployment and resource configuration changes. Which TWO data sources are most useful? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Route 53 hosted-zone count",
+      "EBS snapshot archive",
+      "CloudTrail API history",
+      "AWS Config configuration timeline",
+      "S3 Transfer Acceleration logs"
+    ],
+    "answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Best choice rationale: CloudTrail shows API operations/deploy actions; Config shows configuration changes over time.",
+    "tip": "SOA-C03 exam cue: Troubleshooting change-induced incidents often combines CloudTrail + Config.",
+    "multi": true
+  },
+  {
+    "id": 28,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "During a capacity-planning exercise, a public endpoint must be checked from outside the VPC even when there is no user traffic. Which monitoring method gives the clearest availability signal? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "EC2 CPU alarm",
+      "AWS Config rule",
+      "EBS volume status check",
+      "Synthetic canary"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Synthetic checks actively probe endpoints independent of real traffic.",
+    "tip": "SOA-C03 exam cue: No real traffic + endpoint availability = synthetic monitoring.",
+    "multi": false
+  },
+  {
+    "id": 29,
+    "domain": "Domain 1 — Monitoring, Logging, Analysis, Remediation & Performance Optimization",
+    "prompt": "A platform team has a requirement that the operations team needs to alarm on the ratio of 5xx requests to total requests using existing CloudWatch metrics. Which feature minimizes custom code?",
+    "choices": [
+      "Systems Manager Inventory",
+      "Config advanced query",
+      "CloudWatch metric math",
+      "CloudTrail Insights"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Metric math can derive ratios and expressions from existing metrics and alarms can evaluate the result.",
+    "tip": "SOA-C03 exam cue: Derived metric from existing metrics = metric math.",
+    "multi": false
+  },
+  {
+    "id": 30,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During troubleshooting of a customer-impacting issue, an RDS for PostgreSQL production database must automatically fail over on an AZ outage while preserving the same application endpoint. Which option best satisfies this? The engineer must choose the BEST operational response.",
+    "choices": [
+      "DMS full load",
+      "Multi-AZ deployment",
+      "Read Replica only",
+      "Daily snapshot restore"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: RDS Multi-AZ provides standby-based high availability and managed failover while applications keep the DB endpoint.",
+    "tip": "SOA-C03 exam cue: Multi-AZ = HA/failover; Read Replica = read scaling.",
+    "multi": false
+  },
+  {
+    "id": 31,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a quarterly operations review, a MySQL workload is read-heavy. The company needs to offload reporting queries without using the standby for normal reads. What is the BEST choice? The change must minimize service disruption.",
+    "choices": [
+      "Use Multi-AZ standby for reads",
+      "Restore snapshots hourly",
+      "Increase backup retention",
+      "Create one or more Read Replicas"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Read replicas are intended to scale read traffic; standard Multi-AZ standby is for HA.",
+    "tip": "SOA-C03 exam cue: Read scaling = Read Replica.",
+    "multi": false
+  },
+  {
+    "id": 32,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "After a production incident, a gp3 EBS volume in us-east-1a must be recreated in us-east-1c after an AZ failure. Which workflow is valid?",
+    "choices": [
+      "Attach the existing us-east-1a volume directly to an instance in us-east-1c",
+      "Move the volume by changing subnets",
+      "Create/retain an EBS snapshot and create a new volume from it in us-east-1c",
+      "Change the volume's AZ property"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: EBS volumes are AZ-scoped. Snapshots can be used to create replacement volumes in another AZ in the same Region.",
+    "tip": "SOA-C03 exam cue: EBS volume = AZ-scoped; snapshot enables cross-AZ restore.",
+    "multi": false
+  },
+  {
+    "id": 33,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "While preparing a change window, a business requires RPO≈15 minutes, RTO≈1 hour, cross-Region DR, and lower steady-state cost than full active/active. Which strategy is generally the BEST fit? The solution must minimize operational overhead.",
+    "choices": [
+      "No secondary Region",
+      "Pilot light or appropriately sized warm standby",
+      "Backup only once per day",
+      "Multi-site active/active at full capacity"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Pilot light/warm standby trade ongoing cost for materially faster RTO/RPO than backup-and-restore, without full active/active cost.",
+    "tip": "SOA-C03 exam cue: Know the DR spectrum: backup/restore → pilot light → warm standby → active/active.",
+    "multi": false
+  },
+  {
+    "id": 34,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A newly acquired business unit reports that a web tier must survive an entire AZ outage with minimal intervention. Which THREE design choices are most appropriate? The design must follow least privilege.",
+    "choices": [
+      "RDS Multi-AZ for the stateful database",
+      "One large EC2 instance",
+      "All instances in one AZ",
+      "ASG across multiple AZs",
+      "ALB with targets in multiple AZs"
+    ],
+    "answers": [
+      "D",
+      "E",
+      "A"
+    ],
+    "explanation": "Best choice rationale: Multi-AZ compute/load balancing plus Multi-AZ database removes single-AZ dependencies.",
+    "tip": "SOA-C03 exam cue: AZ resilience requires redundancy in every critical tier.",
+    "multi": true
+  },
+  {
+    "id": 35,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a resilience test, a production workload has predictable traffic every weekday at 08:00. Capacity should increase before users arrive and decrease after 18:00. Which scaling method is MOST appropriate?",
+    "choices": [
+      "Step scaling only",
+      "Manual scaling",
+      "Scheduled scaling",
+      "Target tracking only"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Scheduled scaling is intended for known time-based demand patterns.",
+    "tip": "SOA-C03 exam cue: Predictable calendar pattern = scheduled scaling.",
+    "multi": false
+  },
+  {
+    "id": 36,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A CloudOps engineer discovers that an ASG should maintain average CPU near 50% without manually defining step sizes. Which policy? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Lifecycle hook",
+      "Target tracking",
+      "Simple scaling",
+      "Scheduled scaling"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Target tracking automatically adjusts capacity to maintain a selected target metric value.",
+    "tip": "SOA-C03 exam cue: Maintain metric around target = target tracking.",
+    "multi": false
+  },
+  {
+    "id": 37,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "Following a security audit, traffic spikes unpredictably. At 60–70% CPU add 1 instance; 70–85% add 2; >85% add 4. Which policy fits best? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Target tracking",
+      "Scheduled scaling",
+      "Instance Refresh",
+      "Step scaling"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Step scaling applies different adjustments based on breach magnitude.",
+    "tip": "SOA-C03 exam cue: Different actions for threshold bands = step scaling.",
+    "multi": false
+  },
+  {
+    "id": 38,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a capacity-planning exercise, a new AMI must replace ASG instances gradually while preserving a minimum healthy percentage. Which feature?",
+    "choices": [
+      "CloudFormation drift detection",
+      "S3 replication",
+      "Instance Refresh",
+      "Capacity Reservation"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Instance Refresh performs controlled rolling replacement of Auto Scaling instances.",
+    "tip": "SOA-C03 exam cue: New launch template/AMI + rolling ASG replacement = Instance Refresh.",
+    "multi": false
+  },
+  {
+    "id": 39,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A platform team has a requirement that an enterprise needs centrally scheduled backups with retention and cross-Region copies for supported resources. Which service minimizes custom scripts? The change must minimize service disruption.",
+    "choices": [
+      "Route 53",
+      "AWS Backup",
+      "CloudTrail",
+      "Config"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: AWS Backup centralizes backup plans, lifecycle/retention, vaults, and copy actions.",
+    "tip": "SOA-C03 exam cue: Centralized multi-service backup = AWS Backup.",
+    "multi": false
+  },
+  {
+    "id": 40,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During troubleshooting of a customer-impacting issue, a production S3 bucket must automatically copy new objects to another Region for DR. Which TWO prerequisites/design elements are required? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Disable encryption",
+      "Configure Cross-Region Replication",
+      "Enable Versioning on source and destination buckets",
+      "Enable S3 website hosting",
+      "Use a NAT Gateway"
+    ],
+    "answers": [
+      "B",
+      "C"
+    ],
+    "explanation": "Best choice rationale: CRR provides asynchronous object replication and requires versioning on both buckets.",
+    "tip": "SOA-C03 exam cue: S3 replication questions often hinge on Versioning.",
+    "multi": true
+  },
+  {
+    "id": 41,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a quarterly operations review, an S3 bucket needs recovery from accidental deletes/overwrites but not immutable WORM retention. What is the MOST direct feature?",
+    "choices": [
+      "CloudFront",
+      "S3 Select",
+      "S3 Versioning",
+      "S3 Transfer Acceleration"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Versioning retains previous object versions and delete markers, enabling recovery.",
+    "tip": "SOA-C03 exam cue: Accidental S3 delete/overwrite = Versioning.",
+    "multi": false
+  },
+  {
+    "id": 42,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "After a production incident, a regulated archive must prevent deletion or overwrite for a fixed retention period, including by privileged users in compliance mode. Which feature? The design must follow least privilege.",
+    "choices": [
+      "S3 Transfer Acceleration",
+      "S3 Object Lock Compliance mode",
+      "S3 Versioning only",
+      "S3 lifecycle expiration"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Object Lock Compliance mode enforces WORM retention that cannot be shortened even by privileged users during the retention period.",
+    "tip": "SOA-C03 exam cue: Immutable retention = Object Lock; Compliance is stronger than Governance.",
+    "multi": false
+  },
+  {
+    "id": 43,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "While preparing a change window, an enterprise wants a low-cost cross-Region DR design. Data is continuously replicated, but only core components run in the recovery Region until failover. Which strategy is described? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Backup and restore only",
+      "Multi-site active/active",
+      "Single-AZ",
+      "Pilot light"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Pilot light keeps critical core components/data ready while scaling application capacity during disaster.",
+    "tip": "SOA-C03 exam cue: Core always on, rest scaled during DR = pilot light.",
+    "multi": false
+  },
+  {
+    "id": 44,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A newly acquired business unit reports that a DR environment runs a scaled-down but functional copy of the application continuously in the secondary Region. What strategy is this?",
+    "choices": [
+      "Backup and restore",
+      "Single-site",
+      "Warm standby",
+      "Pilot light"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Warm standby keeps a reduced-capacity functional environment running, ready to scale.",
+    "tip": "SOA-C03 exam cue: Functional reduced copy = warm standby.",
+    "multi": false
+  },
+  {
+    "id": 45,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a resilience test, an enterprise needs the lowest possible RTO and can afford to run full production capacity in two Regions with traffic served from both. Which strategy? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Cold standby",
+      "Multi-site active/active",
+      "Pilot light",
+      "Backup and restore"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Active/active provides the fastest failover at the highest steady-state cost.",
+    "tip": "SOA-C03 exam cue: Fastest RTO generally means highest ongoing DR cost.",
+    "multi": false
+  },
+  {
+    "id": 46,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A CloudOps engineer discovers that an ALB marks an ASG instance unhealthy, but ASG is configured to use only EC2 status checks. The app process can fail while the VM remains healthy. What change best improves self-healing? The engineer must choose the BEST operational response.",
+    "choices": [
+      "Disable ALB health checks",
+      "Use an EBS snapshot",
+      "Add an Internet Gateway",
+      "Configure the ASG to use ELB health checks as well"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: ELB health checks let ASG replace instances that fail application-level target health even when EC2 remains running.",
+    "tip": "SOA-C03 exam cue: App-level failure + ASG replacement = integrate ELB health checks.",
+    "multi": false
+  },
+  {
+    "id": 47,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "Following a security audit, an EBS workload needs higher IOPS but no extra capacity. Which statement about gp3 is correct?",
+    "choices": [
+      "gp3 cannot be modified online",
+      "gp3 is instance store",
+      "IOPS and throughput can be provisioned independently of volume size within limits",
+      "IOPS can only rise when storage size rises"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: gp3 decouples baseline/provisioned performance from size within service limits.",
+    "tip": "SOA-C03 exam cue: gp3 decouples size, IOPS, and throughput.",
+    "multi": false
+  },
+  {
+    "id": 48,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a capacity-planning exercise, a restored EBS volume from a snapshot must deliver predictable high performance immediately for a latency-sensitive workload. Which feature can reduce first-read initialization effects? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Route 53 health checks",
+      "Fast Snapshot Restore where appropriate",
+      "S3 Transfer Acceleration",
+      "CloudTrail Insights"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Fast Snapshot Restore can create volumes that are fully initialized at creation in enabled AZs.",
+    "tip": "SOA-C03 exam cue: Snapshot restore performance clue = Fast Snapshot Restore.",
+    "multi": false
+  },
+  {
+    "id": 49,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A platform team has a requirement that an RDS database needs point-in-time recovery within the configured retention window. Which feature provides this? The solution must minimize operational overhead.",
+    "choices": [
+      "Manual snapshot only",
+      "Read Replica only",
+      "Multi-AZ only",
+      "Automated backups"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: RDS automated backups and transaction logs support point-in-time recovery within the retention period.",
+    "tip": "SOA-C03 exam cue: PITR = automated backups/logs, not Multi-AZ.",
+    "multi": false
+  },
+  {
+    "id": 50,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During troubleshooting of a customer-impacting issue, a production workload requires shared POSIX file storage mounted concurrently by Linux EC2 instances across multiple AZs. Which storage service best fits?",
+    "choices": [
+      "S3 as a block device",
+      "Instance store",
+      "Amazon EFS",
+      "EBS Multi-Attach for all volume types"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: EFS is managed elastic file storage designed for concurrent NFS-style access across AZs.",
+    "tip": "SOA-C03 exam cue: Shared Linux file system across AZs = EFS.",
+    "multi": false
+  },
+  {
+    "id": 51,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a quarterly operations review, a single-AZ EFS mount target exists, but instances run in three AZs. What design improves availability and avoids unnecessary cross-AZ paths? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Use S3 CRR",
+      "Create EFS mount targets in each required AZ/subnet",
+      "Move all instances to one AZ",
+      "Use one NAT Gateway"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: EFS best practice is to have mount targets in the AZs where clients run.",
+    "tip": "SOA-C03 exam cue: Regional service still needs appropriately distributed mount targets.",
+    "multi": false
+  },
+  {
+    "id": 52,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "After a production incident, a production service needs a persistent block volume attached to one EC2 instance with low-latency random I/O. Which storage is the natural fit? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Amazon S3",
+      "Amazon EFS only",
+      "CloudFront",
+      "Amazon EBS"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: EBS provides persistent block storage for EC2.",
+    "tip": "SOA-C03 exam cue: Block storage for EC2 = EBS.",
+    "multi": false
+  },
+  {
+    "id": 53,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "While preparing a change window, a managed server fleet depends on an AMI in one Region. The same image must be available in a DR Region. What is the MOST direct operation?",
+    "choices": [
+      "Enable S3 Transfer Acceleration",
+      "Use Route 53 weighted routing",
+      "Copy the AMI to the target Region",
+      "Create VPC peering"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: AMI copy creates an image in another Region for DR/provisioning.",
+    "tip": "SOA-C03 exam cue: AMI is Regional; copy it for another Region.",
+    "multi": false
+  },
+  {
+    "id": 54,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A newly acquired business unit reports that a service must recover automatically if an EC2 instance fails. Which ASG setting is fundamental? The engineer must choose the BEST operational response.",
+    "choices": [
+      "Use one fixed instance",
+      "Desired capacity with health checks so unhealthy instances are replaced",
+      "Disable health checks",
+      "Use only larger instances"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Auto Scaling maintains desired capacity and replaces unhealthy instances.",
+    "tip": "SOA-C03 exam cue: Desired capacity + health checks = EC2 fleet self-healing.",
+    "multi": false
+  },
+  {
+    "id": 55,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a resilience test, an enterprise wants database read scaling and cross-Region DR for RDS MySQL. Which design best addresses both without confusing HA with read scaling? The change must minimize service disruption.",
+    "choices": [
+      "Assume Multi-AZ standby is a cross-Region read endpoint",
+      "Use EBS Multi-Attach",
+      "Use CloudFront",
+      "Use appropriately configured cross-Region Read Replica(s) and separately plan failover/promotion"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Cross-Region read replicas can serve reads and provide a promotable copy, but promotion/failover planning differs from Multi-AZ.",
+    "tip": "SOA-C03 exam cue: Do not assume Multi-AZ equals cross-Region DR.",
+    "multi": false
+  },
+  {
+    "id": 56,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "A CloudOps engineer discovers that an AWS Backup policy must prevent accidental deletion of recovery points by application administrators. Which control best strengthens separation?",
+    "choices": [
+      "Use public S3 ACLs",
+      "Disable encryption",
+      "Use dedicated backup vaults with tightly scoped IAM/vault access policies",
+      "Store snapshots in /tmp"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Backup vault access control and separation of duties reduce the chance workloads can delete recovery points.",
+    "tip": "SOA-C03 exam cue: Backups need isolation from the identities that manage production.",
+    "multi": false
+  },
+  {
+    "id": 57,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "Following a security audit, a highly available NAT design spans three AZs. Private subnets in each AZ require internet egress. What is the most resilient pattern? The solution must minimize operational overhead.",
+    "choices": [
+      "Route private subnets directly to the IGW",
+      "Deploy a NAT Gateway per AZ and route each private subnet to its local NAT",
+      "Use one NAT Gateway for all AZs",
+      "Give every private instance a public IP"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Per-AZ NAT Gateways remove a single-AZ NAT dependency and avoid cross-AZ routing for egress.",
+    "tip": "SOA-C03 exam cue: For HA, avoid one shared NAT Gateway as an AZ dependency.",
+    "multi": false
+  },
+  {
+    "id": 58,
+    "domain": "Domain 2 — Reliability & Business Continuity",
+    "prompt": "During a capacity-planning exercise, a production workload uses SQS between web and worker tiers. Traffic spikes cause worker pressure. Which design improves resilience? The design must follow least privilege.",
+    "choices": [
+      "Remove the queue and write directly to one worker",
+      "Disable retries",
+      "Scale the web tier only",
+      "Use queue depth/age metrics to scale workers and let SQS buffer bursts"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: SQS decouples producers/consumers; worker Auto Scaling based on queue metrics absorbs bursts.",
+    "tip": "SOA-C03 exam cue: Queues provide backpressure and decoupling; scale consumers on queue demand.",
+    "multi": false
+  },
+  {
+    "id": 59,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A platform team has a requirement that an enterprise must deploy the same CloudFormation baseline to 30 accounts and 4 Regions from a central administrator account. Which capability is specifically designed for this?",
+    "choices": [
+      "Change Sets",
+      "Drift Detection",
+      "CloudFormation StackSets",
+      "Nested stacks only"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: StackSets deploy and manage stacks across multiple accounts and Regions.",
+    "tip": "SOA-C03 exam cue: Multi-account/multi-Region CloudFormation = StackSets.",
+    "multi": false
+  },
+  {
+    "id": 60,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During troubleshooting of a customer-impacting issue, before applying a production CloudFormation update, an engineer must preview which resources will be added, modified, or replaced. Which feature? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Output export",
+      "Change Set",
+      "Drift Detection",
+      "StackSet"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Change Sets preview proposed stack changes before execution.",
+    "tip": "SOA-C03 exam cue: Future planned changes = Change Set.",
+    "multi": false
+  },
+  {
+    "id": 61,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a quarterly operations review, an administrator changed a CloudFormation-managed security group manually. The team wants to detect divergence from the template. Which feature? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Change Set",
+      "StackSet",
+      "CreationPolicy",
+      "Drift Detection"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Drift Detection compares actual supported resource configuration with expected template state.",
+    "tip": "SOA-C03 exam cue: Past out-of-band changes = Drift Detection.",
+    "multi": false
+  },
+  {
+    "id": 62,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "After a production incident, a critical database managed by CloudFormation should be protected from unintended update actions during stack changes. Which control is directly relevant?",
+    "choices": [
+      "NACL",
+      "S3 Object Lock",
+      "Stack policy",
+      "Route table"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: A stack policy can protect selected stack resources from update operations.",
+    "tip": "SOA-C03 exam cue: CloudFormation resource update protection = stack policy.",
+    "multi": false
+  },
+  {
+    "id": 63,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "While preparing a change window, hundreds of managed EC2 nodes need the same shell command executed without opening SSH. Which Systems Manager capability? The change must minimize service disruption.",
+    "choices": [
+      "Parameter Store",
+      "Run Command",
+      "Session Manager",
+      "State Manager"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Run Command remotely executes commands across managed nodes without inbound SSH.",
+    "tip": "SOA-C03 exam cue: Fleet command execution = Run Command.",
+    "multi": false
+  },
+  {
+    "id": 64,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A newly acquired business unit reports that platform administrators need an interactive shell to private EC2 instances with IAM authorization and no SSH keys. Which capability? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Run Command only",
+      "Patch Manager",
+      "CloudFormation",
+      "Session Manager"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Session Manager provides interactive access without opening inbound SSH/RDP.",
+    "tip": "SOA-C03 exam cue: Interactive no-SSH admin = Session Manager.",
+    "multi": false
+  },
+  {
+    "id": 65,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a resilience test, a managed server fleet must continuously maintain a desired package/configuration state and reapply it periodically. Which capability?",
+    "choices": [
+      "CloudTrail",
+      "S3 Inventory",
+      "State Manager",
+      "Session Manager"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: State Manager associations maintain desired state on managed nodes.",
+    "tip": "SOA-C03 exam cue: Maintain desired configuration = State Manager.",
+    "multi": false
+  },
+  {
+    "id": 66,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A CloudOps engineer discovers that a remediation needs a multi-step workflow: snapshot volume, stop service, change configuration, restart, verify. Which SSM capability? The design must follow least privilege.",
+    "choices": [
+      "Parameter Store",
+      "Automation",
+      "Run Command only",
+      "Session Manager"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Systems Manager Automation runbooks orchestrate multi-step operational workflows.",
+    "tip": "SOA-C03 exam cue: Multi-step ops workflow = Automation.",
+    "multi": false
+  },
+  {
+    "id": 67,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "Following a security audit, an enterprise needs scheduled OS patching with approved/blocked patches and compliance reporting. Which service/capability is BEST? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "CloudTrail Insights",
+      "S3 Lifecycle",
+      "Route 53 ARC",
+      "Systems Manager Patch Manager"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Patch Manager automates patching and compliance for managed nodes.",
+    "tip": "SOA-C03 exam cue: OS patch baselines + compliance = Patch Manager.",
+    "multi": false
+  },
+  {
+    "id": 68,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a capacity-planning exercise, a production workload password must be stored as an encrypted Systems Manager parameter using KMS. Which parameter type?",
+    "choices": [
+      "StringList",
+      "BinaryString",
+      "SecureString",
+      "String"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: SecureString uses KMS-backed encryption for sensitive Parameter Store values.",
+    "tip": "SOA-C03 exam cue: Parameter Store secret = SecureString.",
+    "multi": false
+  },
+  {
+    "id": 69,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A platform team has a requirement that database credentials require managed automatic rotation. Which service is generally the BEST fit? The team wants the most direct native AWS capability.",
+    "choices": [
+      "AMI tags",
+      "AWS Secrets Manager",
+      "Plain Parameter Store String",
+      "EC2 user data"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Secrets Manager is purpose-built for secrets and supports rotation workflows/integrations.",
+    "tip": "SOA-C03 exam cue: Automatic credential rotation clue = Secrets Manager.",
+    "multi": false
+  },
+  {
+    "id": 70,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During troubleshooting of a customer-impacting issue, an ASG launch template must install the latest approved package and register a node during first boot. Which mechanism is simplest? The engineer must choose the BEST operational response.",
+    "choices": [
+      "Route 53 health check",
+      "CloudTrail trail",
+      "EBS snapshot archive",
+      "EC2 user data"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: EC2 user data runs bootstrap instructions during instance initialization.",
+    "tip": "SOA-C03 exam cue: First boot bootstrap = user data.",
+    "multi": false
+  },
+  {
+    "id": 71,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a quarterly operations review, an enterprise wants immutable, repeatable EC2 deployments with OS, agent, and application preinstalled. What artifact should be versioned?",
+    "choices": [
+      "Elastic IP",
+      "Route table",
+      "AMI",
+      "Security group"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: AMIs provide reusable versioned machine images for EC2 launch.",
+    "tip": "SOA-C03 exam cue: Immutable server image = AMI.",
+    "multi": false
+  },
+  {
+    "id": 72,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "After a production incident, a container image is stored in ECR. Which service is responsible for scheduling and maintaining desired running container tasks in an ECS deployment? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "CodeArtifact",
+      "Amazon ECS",
+      "Amazon ECR",
+      "S3"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: ECR stores images; ECS orchestrates tasks/services.",
+    "tip": "SOA-C03 exam cue: ECR stores, ECS runs.",
+    "multi": false
+  },
+  {
+    "id": 73,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "While preparing a change window, an ECS workload should run containers without managing EC2 worker hosts. Which compute choice best fits? The solution must minimize operational overhead.",
+    "choices": [
+      "EC2 Dedicated Hosts only",
+      "S3",
+      "CloudFront Functions",
+      "AWS Fargate"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Fargate provides serverless compute capacity for supported ECS/EKS workloads.",
+    "tip": "SOA-C03 exam cue: No container hosts to manage = Fargate.",
+    "multi": false
+  },
+  {
+    "id": 74,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A newly acquired business unit reports that an EC2 IAM role needs access to S3. The company forbids static access keys. Which TWO elements are correct?",
+    "choices": [
+      "Create an IAM user and save keys in Secrets Manager",
+      "Store access keys in user data",
+      "Use an S3 ACL by private IP",
+      "Attach the role via an instance profile",
+      "Let the SDK obtain temporary role credentials via IMDS"
+    ],
+    "answers": [
+      "D",
+      "E"
+    ],
+    "explanation": "Best choice rationale: EC2 roles delivered through instance profiles expose temporary credentials via IMDS to SDKs.",
+    "tip": "SOA-C03 exam cue: Workload credentials = IAM role + temporary credentials, not IAM user keys.",
+    "multi": true
+  },
+  {
+    "id": 75,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a resilience test, an enterprise wants to execute a maintenance command against only instances tagged Environment=Prod without maintaining a static host list. Which approach is best? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Use Route 53 geolocation",
+      "Use Systems Manager targeting by tags/resource groups",
+      "Open SSH to 0.0.0.0/0",
+      "Hard-code instance IDs forever"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Systems Manager commands/automation can target managed nodes dynamically using tags/resource groups.",
+    "tip": "SOA-C03 exam cue: Fleet automation should use dynamic targeting, not static inventories.",
+    "multi": false
+  },
+  {
+    "id": 76,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A CloudOps engineer discovers that an organization wants standard operational procedures as version-controlled documents that can be executed consistently by operators. Which SSM concept fits? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Security groups",
+      "NACLs",
+      "Hosted zones",
+      "Automation runbooks/documents"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: SSM documents/runbooks define reusable operational actions and workflows.",
+    "tip": "SOA-C03 exam cue: Codify operations as runbooks.",
+    "multi": false
+  },
+  {
+    "id": 77,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "Following a security audit, a CloudFormation stack update fails halfway. The team wants resources returned toward the last known successful stack state. Which native behavior is relevant?",
+    "choices": [
+      "S3 replication",
+      "CloudFront invalidation",
+      "Stack rollback",
+      "VPC peering"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: CloudFormation can roll back failed stack operations to the prior stable configuration subject to resource behavior/settings.",
+    "tip": "SOA-C03 exam cue: IaC failure handling = understand rollback.",
+    "multi": false
+  },
+  {
+    "id": 78,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a capacity-planning exercise, the operations team wants to reuse a common VPC template component inside multiple CloudFormation applications. Which design supports modular composition? The engineer must choose the BEST operational response.",
+    "choices": [
+      "S3 Transfer Acceleration",
+      "Nested stacks",
+      "CloudTrail Lake",
+      "NAT instances"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Nested stacks let templates reuse modular stack components.",
+    "tip": "SOA-C03 exam cue: CloudFormation modular reuse = nested stacks.",
+    "multi": false
+  },
+  {
+    "id": 79,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A platform team has a requirement that a stack creates an ALB before application instances are ready. The engineer needs CloudFormation to wait for a bootstrap success signal before considering a resource ready. Which pattern is relevant? The change must minimize service disruption.",
+    "choices": [
+      "S3 lifecycle rule",
+      "NACL deny",
+      "Route 53 geolocation",
+      "CreationPolicy/WaitCondition signaling where supported"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: CloudFormation signaling constructs can coordinate resource creation with bootstrap completion.",
+    "tip": "SOA-C03 exam cue: Bootstrap completion dependency = CloudFormation signaling constructs.",
+    "multi": false
+  },
+  {
+    "id": 80,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During troubleshooting of a customer-impacting issue, an enterprise needs to apply an OS configuration to on-premises servers as well as EC2 using Systems Manager. What must on-prem nodes become?",
+    "choices": [
+      "CloudFront origins",
+      "Route 53 aliases",
+      "Systems Manager managed nodes through hybrid activation/appropriate registration",
+      "EBS volumes"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Systems Manager can manage hybrid nodes after registration/activation and agent setup.",
+    "tip": "SOA-C03 exam cue: SSM is hybrid-capable when nodes are registered as managed nodes.",
+    "multi": false
+  },
+  {
+    "id": 81,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a quarterly operations review, a security team wants patch compliance reports without manually logging into servers. Which TWO capabilities work together most directly? The solution must minimize operational overhead.",
+    "choices": [
+      "Systems Manager compliance/inventory reporting",
+      "S3 static website hosting",
+      "Route 53 health checks",
+      "ALB listener rules",
+      "Systems Manager Patch Manager"
+    ],
+    "answers": [
+      "E",
+      "A"
+    ],
+    "explanation": "Best choice rationale: Patch Manager performs patching, and Systems Manager compliance/inventory data supports centralized status reporting.",
+    "tip": "SOA-C03 exam cue: Patching is not just install; exam questions may test compliance visibility too.",
+    "multi": true
+  },
+  {
+    "id": 82,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "After a production incident, a production workload deployment uses two ASGs, old and new, and shifts traffic only after validation. What deployment pattern is this? The design must follow least privilege.",
+    "choices": [
+      "In-place only",
+      "Pilot light DR",
+      "Read scaling",
+      "Blue/green"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Blue/green maintains separate old/new environments, enabling validation and rapid rollback.",
+    "tip": "SOA-C03 exam cue: Separate old/new environments + traffic switch = blue/green.",
+    "multi": false
+  },
+  {
+    "id": 83,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "While preparing a change window, the operations team wants to update existing ASG instances to a new launch-template version without creating a second ASG. Which feature is most direct?",
+    "choices": [
+      "CloudTrail Insights",
+      "S3 Inventory",
+      "Instance Refresh",
+      "StackSet"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Instance Refresh performs rolling replacement within an existing ASG.",
+    "tip": "SOA-C03 exam cue: Existing ASG rolling update = Instance Refresh.",
+    "multi": false
+  },
+  {
+    "id": 84,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A newly acquired business unit reports that a Systems Manager Automation should assume a dedicated IAM role with only permissions required by the runbook. What security principle is being applied? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Anonymous access",
+      "Least privilege",
+      "Public access",
+      "Shared root credentials"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: A narrowly scoped automation role limits blast radius and follows least privilege.",
+    "tip": "SOA-C03 exam cue: Automation needs explicit least-privilege execution roles.",
+    "multi": false
+  },
+  {
+    "id": 85,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "During a resilience test, an enterprise wants centralized patch windows and recurring maintenance actions on managed nodes. Which Systems Manager feature category should be investigated first? The team wants the most direct native AWS capability.",
+    "choices": [
+      "S3 Object Lock",
+      "Route 53 Resolver",
+      "EBS Multi-Attach",
+      "Maintenance Windows"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Systems Manager Maintenance Windows schedule operational tasks against managed targets during defined periods.",
+    "tip": "SOA-C03 exam cue: Recurring approved maintenance periods = Maintenance Windows.",
+    "multi": false
+  },
+  {
+    "id": 86,
+    "domain": "Domain 3 — Deployment, Provisioning & Automation",
+    "prompt": "A CloudOps engineer discovers that a deployment script needs a non-secret environment-specific value shared by many instances. The team wants centralized hierarchical configuration retrieval. Which service is a natural fit?",
+    "choices": [
+      "GuardDuty",
+      "AWS Shield",
+      "Systems Manager Parameter Store",
+      "CloudTrail"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Parameter Store supports centralized hierarchical configuration values, including non-secret String parameters.",
+    "tip": "SOA-C03 exam cue: Configuration values = Parameter Store; secrets needing rotation = Secrets Manager.",
+    "multi": false
+  },
+  {
+    "id": 87,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "Following a security audit, a production workload behind an ALB must block SQL injection and XSS patterns at the HTTP layer. Which service is MOST appropriate? The change must minimize service disruption.",
+    "choices": [
+      "Inspector",
+      "AWS WAF",
+      "AWS Shield only",
+      "GuardDuty"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: AWS WAF inspects HTTP(S) requests and applies managed/custom web ACL rules for threats such as SQLi/XSS.",
+    "tip": "SOA-C03 exam cue: WAF = application-layer request filtering.",
+    "multi": false
+  },
+  {
+    "id": 88,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a capacity-planning exercise, a public application needs enhanced DDoS protection and response support beyond the standard baseline. Which service should be considered? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "AWS WAF only",
+      "Inspector",
+      "Macie",
+      "AWS Shield Advanced"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Shield Advanced provides enhanced DDoS protections/features; WAF is request filtering, not a substitute for DDoS-specific protection.",
+    "tip": "SOA-C03 exam cue: Shield = DDoS; WAF = HTTP request rules.",
+    "multi": false
+  },
+  {
+    "id": 89,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A platform team has a requirement that the security team needs automated discovery of known software vulnerabilities/CVEs on supported EC2 workloads and container images. Which service?",
+    "choices": [
+      "Security Hub only",
+      "AWS Config",
+      "Amazon Inspector",
+      "GuardDuty"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Inspector performs vulnerability management/scanning for supported workloads and images.",
+    "tip": "SOA-C03 exam cue: CVE/vulnerability findings = Inspector.",
+    "multi": false
+  },
+  {
+    "id": 90,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During troubleshooting of a customer-impacting issue, security wants managed threat detection for suspicious AWS account/workload activity using sources such as CloudTrail, DNS, and VPC telemetry. Which service? The design must follow least privilege.",
+    "choices": [
+      "AWS Backup",
+      "Amazon GuardDuty",
+      "Inspector",
+      "CloudFormation"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: GuardDuty performs managed threat detection from multiple AWS telemetry sources.",
+    "tip": "SOA-C03 exam cue: Threat detection = GuardDuty.",
+    "multi": false
+  },
+  {
+    "id": 91,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a quarterly operations review, an enterprise wants a central view aggregating findings from GuardDuty, Inspector, and other security services across accounts. Which service? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "AWS WAF",
+      "AWS Shield",
+      "CloudWatch Synthetics",
+      "AWS Security Hub"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Security Hub aggregates and normalizes security findings and posture information.",
+    "tip": "SOA-C03 exam cue: Central security findings = Security Hub.",
+    "multi": false
+  },
+  {
+    "id": 92,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "After a production incident, a sensitive S3 bucket must never become public even if an administrator adds a public ACL or bucket policy. Which control is most direct?",
+    "choices": [
+      "S3 Select",
+      "CloudFront",
+      "S3 Block Public Access",
+      "S3 Transfer Acceleration"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: S3 Block Public Access provides account/bucket-level controls that override/prevent common public-access configurations.",
+    "tip": "SOA-C03 exam cue: Prevent accidental public S3 = Block Public Access.",
+    "multi": false
+  },
+  {
+    "id": 93,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "While preparing a change window, an organization wants to prevent s3:DeleteBucket in member accounts even if local administrators grant themselves Allow. Which control? The team wants the most direct native AWS capability.",
+    "choices": [
+      "A security group",
+      "An SCP with explicit Deny at the appropriate OU/account",
+      "An IAM Allow policy",
+      "An S3 lifecycle rule"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: An applicable SCP explicit Deny constrains member-account permissions and cannot be overridden by an IAM Allow.",
+    "tip": "SOA-C03 exam cue: SCPs set permission guardrails; explicit Deny wins.",
+    "multi": false
+  },
+  {
+    "id": 94,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A newly acquired business unit reports that an EC2 workload needs S3 access without long-term keys. Which design is MOST secure and operationally simple? The engineer must choose the BEST operational response.",
+    "choices": [
+      "IAM user keys in /etc/profile",
+      "Root access keys encrypted in S3",
+      "Public bucket",
+      "IAM role attached via instance profile using temporary credentials"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Instance roles provide automatically rotated temporary credentials to applications.",
+    "tip": "SOA-C03 exam cue: AWS workloads should use roles, not static IAM user keys.",
+    "multi": false
+  },
+  {
+    "id": 95,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a resilience test, a production workload must retrieve database credentials with automatic rotation and IAM-based access control. Which service?",
+    "choices": [
+      "EC2 tags",
+      "CloudWatch Logs",
+      "Secrets Manager",
+      "Plain SSM String"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Secrets Manager is designed for managed secret storage and rotation.",
+    "tip": "SOA-C03 exam cue: Rotation requirement strongly favors Secrets Manager.",
+    "multi": false
+  },
+  {
+    "id": 96,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A CloudOps engineer discovers that an S3 bucket needs encryption at rest with customer-controlled key policy and rotation options. Which approach? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Disable encryption",
+      "SSE-KMS with a customer managed KMS key",
+      "SSE-S3 only",
+      "Store plaintext and rely on TLS"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: SSE-KMS with a customer managed key provides key-policy and lifecycle control.",
+    "tip": "SOA-C03 exam cue: Customer control of encryption key = customer managed KMS key.",
+    "multi": false
+  },
+  {
+    "id": 97,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "Following a security audit, a KMS key policy contains an explicit Deny for a role while an IAM policy allows kms:Decrypt. What happens? The solution must minimize operational overhead.",
+    "choices": [
+      "The IAM Allow always wins",
+      "The result is random",
+      "KMS ignores key policy",
+      "The decrypt is denied"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Explicit Deny in applicable authorization policy wins over Allow.",
+    "tip": "SOA-C03 exam cue: Explicit Deny overrides Allow.",
+    "multi": false
+  },
+  {
+    "id": 98,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a capacity-planning exercise, a security team wants to know which S3 buckets are noncompliant and automatically invoke an SSM remediation. Which TWO capabilities fit best?",
+    "choices": [
+      "CloudFront Functions",
+      "NAT Gateway",
+      "ECR replication",
+      "AWS Config rules",
+      "AWS Config automatic remediation with SSM Automation"
+    ],
+    "answers": [
+      "D",
+      "E"
+    ],
+    "explanation": "Best choice rationale: Config evaluates compliance; automatic remediation can invoke SSM Automation documents.",
+    "tip": "SOA-C03 exam cue: Config + SSM Automation = compliance remediation.",
+    "multi": true
+  },
+  {
+    "id": 99,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A platform team has a requirement that platform administrators need command-line access to private EC2 with no inbound port 22, no SSH keys, IAM controls, and session logging. Which service? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Route 53 Resolver",
+      "Systems Manager Session Manager",
+      "Bastion host only",
+      "Direct Connect"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Session Manager meets the no-SSH/IAM/auditing requirements and works for private managed nodes with appropriate connectivity.",
+    "tip": "SOA-C03 exam cue: No SSH + IAM + audit = Session Manager.",
+    "multi": false
+  },
+  {
+    "id": 100,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During troubleshooting of a customer-impacting issue, an enterprise needs to identify unused permissions in an IAM role and move toward least privilege. Which AWS IAM capability is most directly relevant? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "NAT Gateway",
+      "CloudFront",
+      "EBS Fast Snapshot Restore",
+      "IAM Access Analyzer policy-generation/access-analysis capabilities"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: IAM Access Analyzer helps analyze access and can support least-privilege policy refinement.",
+    "tip": "SOA-C03 exam cue: Least-privilege analysis = IAM Access Analyzer.",
+    "multi": false
+  },
+  {
+    "id": 101,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a quarterly operations review, a central security account needs to ensure CloudTrail logs cannot be casually altered by workload administrators. Which TWO measures strengthen the design?",
+    "choices": [
+      "Use appropriate S3/KMS permissions and log-file validation where required",
+      "Make the bucket public",
+      "Store logs only on EC2 instance store",
+      "Disable trails during maintenance",
+      "Deliver trails to a dedicated, tightly controlled S3 bucket"
+    ],
+    "answers": [
+      "E",
+      "A"
+    ],
+    "explanation": "Best choice rationale: Dedicated logging accounts/buckets and restrictive permissions protect audit logs; CloudTrail validation can help detect modification.",
+    "tip": "SOA-C03 exam cue: Protect logs from the same admins you are auditing.",
+    "multi": true
+  },
+  {
+    "id": 102,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "After a production incident, an enterprise must enforce TLS for requests to a sensitive S3 bucket. Which policy approach is commonly used? The engineer must choose the BEST operational response.",
+    "choices": [
+      "S3 lifecycle rule",
+      "Bucket policy Deny when aws:SecureTransport is false",
+      "Security group on S3",
+      "NACL on the bucket"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: An S3 bucket policy can explicitly deny requests that are not using secure transport.",
+    "tip": "SOA-C03 exam cue: S3 has no security group; use bucket policy conditions.",
+    "multi": false
+  },
+  {
+    "id": 103,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "While preparing a change window, an enterprise wants to prohibit public sharing across all current and future S3 buckets in an account. What is the strongest simple starting control? The change must minimize service disruption.",
+    "choices": [
+      "Individual object ACL reviews only",
+      "CloudWatch alarm only",
+      "NAT Gateway",
+      "Account-level S3 Block Public Access"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Account-level Block Public Access provides broad preventive controls over S3 public access.",
+    "tip": "SOA-C03 exam cue: Preventive account-wide S3 control beats bucket-by-bucket cleanup.",
+    "multi": false
+  },
+  {
+    "id": 104,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A newly acquired business unit reports that a database password is encrypted with a customer-managed KMS key. The app role can read the secret but cannot decrypt it. What permission area must be checked?",
+    "choices": [
+      "NACL ephemeral ports",
+      "ALB listener",
+      "KMS key policy/IAM permissions for kms:Decrypt",
+      "Route table"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Reading an encrypted secret may also require authorization to use the KMS key for decryption.",
+    "tip": "SOA-C03 exam cue: Resource access and KMS key access are separate authorization layers.",
+    "multi": false
+  },
+  {
+    "id": 105,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "During a resilience test, an enterprise wants organization-wide AWS Config compliance visibility in a central account. Which capability should be considered? The solution must minimize operational overhead.",
+    "choices": [
+      "EBS snapshot lock",
+      "AWS Config aggregator",
+      "CloudFront origin group",
+      "S3 Transfer Acceleration"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Config aggregators collect configuration/compliance data across accounts/Regions for centralized visibility.",
+    "tip": "SOA-C03 exam cue: Multi-account Config view = aggregator.",
+    "multi": false
+  },
+  {
+    "id": 106,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "A CloudOps engineer discovers that a security engineer wants findings for secrets accidentally committed in application logs. Which first principle is MOST important? The design must follow least privilege.",
+    "choices": [
+      "Encrypt the log group and keep using the exposed credential forever",
+      "Make logs public",
+      "Disable auditing",
+      "Prevent secrets from being logged and rotate any exposed credentials"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Encryption at rest does not undo exposure to authorized readers; fix logging behavior and rotate compromised secrets.",
+    "tip": "SOA-C03 exam cue: When a secret leaks, rotate/revoke it; encryption is not retroactive secrecy.",
+    "multi": false
+  },
+  {
+    "id": 107,
+    "domain": "Domain 4 — Security & Compliance",
+    "prompt": "Following a security audit, an IAM permissions boundary allows only read actions, while an attached identity policy allows s3:DeleteObject. Assuming no other grants, can the role delete?",
+    "choices": [
+      "Yes, because S3 is global",
+      "It depends on Route 53",
+      "No, the permissions boundary limits the maximum effective permissions",
+      "Yes, identity policy always overrides boundaries"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: A permissions boundary limits the maximum identity-based permissions; an Allow outside the boundary is not effective.",
+    "tip": "SOA-C03 exam cue: Boundaries cap permissions; they do not grant them.",
+    "multi": false
+  },
+  {
+    "id": 108,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a capacity-planning exercise, eC2 instances in isolated private subnets need S3 access without NAT, public IPs, or internet traversal. Which endpoint type is MOST cost-effective? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Internet Gateway",
+      "S3 Gateway VPC Endpoint",
+      "Interface endpoint to an arbitrary proxy",
+      "NAT Gateway"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: S3 supports Gateway VPC Endpoints, which provide private routing without NAT for this use case.",
+    "tip": "SOA-C03 exam cue: S3/DynamoDB are classic Gateway Endpoint services.",
+    "multi": false
+  },
+  {
+    "id": 109,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A platform team has a requirement that eC2 instances in isolated private subnets need Secrets Manager access without NAT or internet. Which solution? The team wants the most direct native AWS capability.",
+    "choices": [
+      "S3 Gateway Endpoint",
+      "Internet Gateway",
+      "Public IPs",
+      "Interface VPC Endpoint for Secrets Manager"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Secrets Manager is accessed privately using an Interface VPC Endpoint/PrivateLink.",
+    "tip": "SOA-C03 exam cue: Most private AWS service APIs use Interface Endpoints.",
+    "multi": false
+  },
+  {
+    "id": 110,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During troubleshooting of a customer-impacting issue, a private subnet needs general outbound internet access for OS updates. Which design is correct?",
+    "choices": [
+      "NAT Gateway in the private subnet with no IGW",
+      "Route through an ALB",
+      "Private route 0.0.0.0/0 → NAT Gateway in a public subnet; public subnet route → IGW",
+      "Private route directly → IGW without public IP"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: A public NAT Gateway resides in a public subnet with IGW connectivity; private subnets route internet traffic to it.",
+    "tip": "SOA-C03 exam cue: Private internet egress = NAT Gateway + IGW path.",
+    "multi": false
+  },
+  {
+    "id": 111,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a quarterly operations review, an enterprise needs highly available private-subnet internet egress across three AZs. Which pattern avoids a single-AZ dependency? The change must minimize service disruption.",
+    "choices": [
+      "One NAT instance without Auto Scaling",
+      "NAT Gateway per AZ with local private-subnet routes",
+      "One NAT Gateway total",
+      "Public IPs on all private instances"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Per-AZ NAT Gateways provide AZ-aligned egress and reduce dependency on one AZ.",
+    "tip": "SOA-C03 exam cue: HA NAT = per-AZ design.",
+    "multi": false
+  },
+  {
+    "id": 112,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "After a production incident, an enterprise has 40 VPCs and wants hub-and-spoke private connectivity without full-mesh peering. Which service? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "NAT Gateway",
+      "Internet Gateway",
+      "CloudFront",
+      "AWS Transit Gateway"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Transit Gateway provides centralized routing among VPCs and hybrid networks.",
+    "tip": "SOA-C03 exam cue: Many VPCs + hub = Transit Gateway.",
+    "multi": false
+  },
+  {
+    "id": 113,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "While preparing a change window, two VPCs require simple private connectivity and will remain only two. CIDRs do not overlap. Which lower-complexity choice is often appropriate?",
+    "choices": [
+      "NAT Gateway",
+      "S3 Gateway Endpoint",
+      "VPC Peering",
+      "Transit Gateway is always mandatory"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: For a small number of VPCs, VPC peering can be simpler and cost-effective.",
+    "tip": "SOA-C03 exam cue: Small/simple VPC-to-VPC = peering; many VPCs = Transit Gateway.",
+    "multi": false
+  },
+  {
+    "id": 114,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A newly acquired business unit reports that an enterprise needs Layer 7 host/path-based routing for /api and /images. Which load balancer? The design must follow least privilege.",
+    "choices": [
+      "Classic NAT Gateway",
+      "Application Load Balancer",
+      "Network Load Balancer",
+      "Gateway Load Balancer only"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: ALB performs HTTP/HTTPS Layer 7 routing including host/path conditions.",
+    "tip": "SOA-C03 exam cue: Path/host routing = ALB.",
+    "multi": false
+  },
+  {
+    "id": 115,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a resilience test, a service needs millions of TCP connections, Layer 4 behavior, and static IP addresses per enabled AZ. Which load balancer? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "Application Load Balancer",
+      "CloudFront only",
+      "Route 53 Resolver",
+      "Network Load Balancer"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: NLB is Layer 4, high performance, and supports static IP addressing characteristics.",
+    "tip": "SOA-C03 exam cue: Static IP + TCP/UDP/TLS = NLB.",
+    "multi": false
+  },
+  {
+    "id": 116,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A CloudOps engineer discovers that an internet-facing application needs SQLi/XSS filtering before requests reach the ALB. Which attachment is appropriate?",
+    "choices": [
+      "Use a NAT Gateway",
+      "Use EBS encryption",
+      "Associate an AWS WAF web ACL with the ALB",
+      "Attach a security group to S3"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: AWS WAF integrates with ALB for Layer 7 request filtering.",
+    "tip": "SOA-C03 exam cue: Web exploits = WAF.",
+    "multi": false
+  },
+  {
+    "id": 117,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "Following a security audit, static content should be cached near global users while the ALB remains the origin. Which service? The team wants the most direct native AWS capability.",
+    "choices": [
+      "Transit Gateway",
+      "CloudFront",
+      "Global Accelerator only",
+      "NAT Gateway"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: CloudFront is a CDN and caches content at edge locations with ALB as an origin.",
+    "tip": "SOA-C03 exam cue: Caching = CloudFront.",
+    "multi": false
+  },
+  {
+    "id": 118,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a capacity-planning exercise, a global TCP application cannot use caching and needs static anycast IP addresses with traffic accelerated over the AWS global network. Which service? The engineer must choose the BEST operational response.",
+    "choices": [
+      "CloudFront",
+      "Route 53 Resolver",
+      "S3 Transfer Acceleration",
+      "AWS Global Accelerator"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Global Accelerator improves availability/performance for TCP/UDP endpoints using static anycast IPs without content caching.",
+    "tip": "SOA-C03 exam cue: Global acceleration without caching = Global Accelerator.",
+    "multi": false
+  },
+  {
+    "id": 119,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A platform team has a requirement that users should be routed by DNS to the Region offering the lowest network latency, excluding unhealthy endpoints. Which TWO Route 53 features?",
+    "choices": [
+      "Weighted routing only",
+      "Resolver outbound endpoints",
+      "Latency-based routing",
+      "Health checks/evaluate target health as applicable",
+      "Geolocation routing only"
+    ],
+    "answers": [
+      "C",
+      "D"
+    ],
+    "explanation": "Best choice rationale: Latency routing selects the best-latency Region; health evaluation avoids unhealthy destinations.",
+    "tip": "SOA-C03 exam cue: Lowest latency != geolocation.",
+    "multi": true
+  },
+  {
+    "id": 120,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During troubleshooting of a customer-impacting issue, an enterprise wants 10% of DNS traffic to a new endpoint and 90% to the old endpoint. Which Route 53 policy? The solution should avoid unnecessary custom code.",
+    "choices": [
+      "Failover only",
+      "Weighted routing",
+      "Latency routing",
+      "Geolocation routing"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Weighted records distribute DNS responses according to assigned relative weights.",
+    "tip": "SOA-C03 exam cue: Canary percentage split at DNS = weighted routing.",
+    "multi": false
+  },
+  {
+    "id": 121,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a quarterly operations review, an enterprise needs primary/secondary DNS behavior where the secondary is returned only if primary health fails. Which policy? The solution must minimize operational overhead.",
+    "choices": [
+      "Weighted",
+      "Geoproximity only",
+      "Multivalue only",
+      "Failover routing"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Failover routing supports active/passive primary-secondary DNS decisions with health checks.",
+    "tip": "SOA-C03 exam cue: Primary/DR DNS = failover routing.",
+    "multi": false
+  },
+  {
+    "id": 122,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "After a production incident, traffic must be routed based on users' country/continent because of content licensing, not latency. Which Route 53 policy?",
+    "choices": [
+      "Weighted routing",
+      "Simple routing",
+      "Geolocation routing",
+      "Latency routing"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Geolocation routing uses the geographic location of DNS clients for routing decisions.",
+    "tip": "SOA-C03 exam cue: Country/continent requirement = geolocation.",
+    "multi": false
+  },
+  {
+    "id": 123,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "While preparing a change window, a security group allows outbound HTTPS; return traffic for an established connection is expected without a matching inbound rule. Why? The company wants the most resilient option that meets the requirement.",
+    "choices": [
+      "IGWs decrypt TLS",
+      "Security groups are stateful",
+      "NACLs are stateful",
+      "Route tables track sessions"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Security groups are stateful, so response traffic is automatically allowed for permitted connections.",
+    "tip": "SOA-C03 exam cue: SG = stateful; NACL = stateless.",
+    "multi": false
+  },
+  {
+    "id": 124,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A newly acquired business unit reports that a subnet NACL permits outbound TCP 443 but blocks ephemeral return ports. HTTPS connections fail. What property explains this? The team prefers an AWS-managed solution and no long-lived credentials.",
+    "choices": [
+      "Security groups are stateless",
+      "ALBs use UDP only",
+      "NAT Gateways ignore NACLs",
+      "NACLs are stateless and must allow return traffic explicitly"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Network ACLs are stateless, so both directions must be permitted, including ephemeral ports as required.",
+    "tip": "SOA-C03 exam cue: NACL troubleshooting often hinges on return ephemeral ports.",
+    "multi": false
+  },
+  {
+    "id": 125,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a resilience test, an ALB must terminate HTTPS using an AWS-managed public certificate and redirect HTTP to HTTPS. Which TWO configurations?",
+    "choices": [
+      "Port 80 listener redirect to HTTPS 443",
+      "Self-signed cert on every target only",
+      "NAT Gateway TLS termination",
+      "Route 53 health check encryption",
+      "ACM certificate on the HTTPS listener"
+    ],
+    "answers": [
+      "E",
+      "A"
+    ],
+    "explanation": "Best choice rationale: ACM integrates with ALB TLS listeners, and ALB can issue HTTP→HTTPS redirects.",
+    "tip": "SOA-C03 exam cue: ACM + ALB listener = managed TLS termination.",
+    "multi": true
+  },
+  {
+    "id": 126,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A CloudOps engineer discovers that a Direct Connect connection needs an encrypted backup path over the public internet. Which option? The engineer must choose the BEST operational response.",
+    "choices": [
+      "S3 Gateway Endpoint",
+      "AWS Site-to-Site VPN",
+      "NAT Gateway",
+      "CloudFront"
+    ],
+    "answers": [
+      "B"
+    ],
+    "explanation": "Best choice rationale: Site-to-Site VPN provides encrypted IPsec connectivity and is commonly used as a DX backup path.",
+    "tip": "SOA-C03 exam cue: DX backup over internet = Site-to-Site VPN.",
+    "multi": false
+  },
+  {
+    "id": 127,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "Following a security audit, a VPC must resolve on-premises DNS names using an on-prem DNS server, with queries originating from the VPC. Which Route 53 Resolver component? The change must minimize service disruption.",
+    "choices": [
+      "Inbound endpoint only",
+      "Hosted-zone alias only",
+      "CloudFront origin",
+      "Outbound endpoint plus forwarding rule"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Resolver outbound endpoints forward selected VPC DNS queries to external/on-prem resolvers.",
+    "tip": "SOA-C03 exam cue: VPC → on-prem DNS = Resolver outbound endpoint.",
+    "multi": false
+  },
+  {
+    "id": 128,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During a capacity-planning exercise, on-premises systems must query private Route 53 hosted-zone names through AWS. Which component is typically required?",
+    "choices": [
+      "NAT Gateway",
+      "CloudFront",
+      "Route 53 Resolver inbound endpoint",
+      "Outbound endpoint only"
+    ],
+    "answers": [
+      "C"
+    ],
+    "explanation": "Best choice rationale: Inbound endpoints receive DNS queries from on-premises networks for resolution in the VPC/Route 53 Resolver context.",
+    "tip": "SOA-C03 exam cue: On-prem → AWS DNS = Resolver inbound endpoint.",
+    "multi": false
+  },
+  {
+    "id": 129,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "A platform team has a requirement that two EC2 instances cannot connect. SGs appear correct. The engineer wants a static analysis of the path and then packet metadata if needed. Which TWO tools are most relevant? The solution must minimize operational overhead.",
+    "choices": [
+      "VPC Flow Logs",
+      "CloudTrail data events",
+      "S3 Inventory",
+      "Inspector",
+      "Reachability Analyzer"
+    ],
+    "answers": [
+      "E",
+      "A"
+    ],
+    "explanation": "Best choice rationale: Reachability Analyzer analyzes configuration path; Flow Logs show traffic metadata and ACCEPT/REJECT records.",
+    "tip": "SOA-C03 exam cue: Use Reachability Analyzer for path logic and Flow Logs for observed traffic.",
+    "multi": true
+  },
+  {
+    "id": 130,
+    "domain": "Domain 5 — Networking & Content Delivery",
+    "prompt": "During troubleshooting of a customer-impacting issue, a three-tier app should allow internet → ALB, ALB → app, and app → DB only. What is the BEST security-group design? The design must follow least privilege.",
+    "choices": [
+      "One SG allowing 0.0.0.0/0 to all tiers",
+      "Public DB with password auth only",
+      "Use NACLs only and no SGs",
+      "Separate SGs and reference ALB-SG as source to App-SG, then App-SG as source to DB-SG"
+    ],
+    "answers": [
+      "D"
+    ],
+    "explanation": "Best choice rationale: Security-group referencing enables least-privilege tier-to-tier access without broad CIDRs.",
+    "tip": "SOA-C03 exam cue: Multi-tier SG pattern: Internet → ALB-SG → App-SG → DB-SG.",
+    "multi": false
+  }
+];
+</script><script>
+const state=JSON.parse(localStorage.getItem('soaC03StateSetBSetB')||'{}'); state.answers=state.answers||{};state.checked=state.checked||{};
+const same=(a,b)=>[...(a||[])].sort().join()===[...(b||[])].sort().join();
+const app=document.getElementById('review');
+let correct=0;
+QUESTION_BANK.forEach(q=>{
+ const user=state.answers[q.id]||[]; const ok=state.checked[q.id]&&same(user,q.answers); if(ok)correct++;
+ const choice=L=>q.choices[L.charCodeAt(0)-65];
+ const correctText=q.answers.map(L=>`${L}. ${choice(L)}`).join('<br>');
+ const userText=user.length?user.map(L=>`${L}. ${choice(L)}`).join('<br>'):'Not answered';
+ const div=document.createElement('div');div.className='review-item';
+ div.innerHTML=`<div class="domain">${q.domain}</div><h2>Q${q.id}</h2><p>${q.prompt}</p>
+ <p><strong>Your answer:</strong><br>${userText}</p><p class="${ok?'right':'wrongtxt'}">${ok?'✓ Correct':'✗ Incorrect / not checked'}</p>
+ <p><strong>Correct answer:</strong><br>${correctText}</p><p><strong>Explanation:</strong> ${q.explanation}</p><p><strong>Exam tip:</strong> ${q.tip}</p>`;
+ app.appendChild(div);
+});
+document.getElementById('scoreline').textContent=`Saved live score: ${correct}/130 (${(correct/130*100).toFixed(1)}%)`;
+</script></body></html>
