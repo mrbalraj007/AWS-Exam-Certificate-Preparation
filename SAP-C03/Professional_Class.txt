@@ -29,6 +29,9 @@ https://www.certsafari.com/aws/quiz/cloudops-engineer-associate
 https://github.com/Ditectrev/AWS-Certified-CloudOps-Engineer-Associate-SOA-C03-Practice-Tests-Exams-Questions-Answers
 
 *****************************************************************
+SAP-C02- In the attached document, I have taken a screenshots along with sequence number and you need to convert that screenshot which is in a image format to text and you need to answer the correct question and prepare a consolidated new document with question along with all option with a correct question and exam tips. if you are unsure then you can ask me question. Please don't skip any question and use the latest information to answer any question.
+
+*******************************************************************
 
 AWS Certified CloudOps Engineer - Associate SOA-C03. I have to give exam in next month Sept 03, 2026 and I want to prepare for exam and looking for Mock Test with level hard for exam. Can you prepare the mock test for me same level as in real exam and answer should not be easy to guess. You should use the latest information as on today for Exam related and try to cover all modules whatever relevant for SOA-C03. Ask me question for qxam level and give me option to reply the correct answer and explain why it is wrong then move to next question until finished. Also, give me exam tips for remember things for question. Ask me 65 question and again level should be harder. I want to do kind of mock test with you. 
 
