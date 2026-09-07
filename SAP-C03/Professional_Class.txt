@@ -19,6 +19,8 @@ Will start from https://www.secexams.com/exams/Amazon/aws-certified-solutions-ar
 
 New Exam (SAP-C03) After Nov 17, 2026.
 
+*******************
+https://docs.aws.amazon.com/whitepapers/latest/cost-optimization-right-sizing/cost-optimization-right-sizing.html
 
 
 
